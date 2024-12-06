@@ -27,5 +27,5 @@ jobs:
         with:
           context: .  # Set the context to the root of the repository
           push: true  # Push the image to Docker Hub
-          tags: ${{ secrets.DOCKER_USERNAME }}/scan_eat:store_service  # Replace with your Docker Hub username and desired image name
+          tags: ${{ secrets.DOCKER_USERNAME }}/scan_eat:store-service  # Replace with your Docker Hub username and desired image name
 
