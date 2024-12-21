@@ -1,25 +1,17 @@
-module.exports = function makeCreateStore({ storesDb, AlreadyExistsError }) {
+module.exports = function makeCreateStore({ storesDb }) {
     return async function createStore({
       name,
       description,
-      user_id,
+      userId,
       visibility,
       location,
     }) {
-      try {
-        // Check if a store with the same name and user_id already exists
-        const existingStore = await storesDb.findStoreByNameAndUserId({ name, user_id });
-  
-        if (existingStore) {
-          console.log(`Store already exists with name: ${name} for user: ${user_id}`);
-          throw new AlreadyExistsError("EX-00005", "Store already exists.");
-        }
-  
+      try {  
         // Create the new store with additional fields
         const newStore = await storesDb.createStore({
           name,
           description,
-          user_id,
+          userId,
           visibility,
           location,
           isDisabled: false,

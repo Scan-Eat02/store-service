@@ -5,7 +5,7 @@ function makeCreateStoreAction({ createStore, formatResponse, formatError }) {
             const storeData = {
                 name: req.body['name'],
                 description: req.body['description'],
-                user_id: req.body['user_id'],
+                userId: req.body['userId'],
                 visibility: req.body['visibility'],
                 location: req.body['location'],
             };
