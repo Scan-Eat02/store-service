@@ -6,7 +6,7 @@ const {
     deleteStore,
     updateStore,
     getUserStores,
-    getAlStores
+    getAllStores
 } = require('../../use-cases').storeUseCases;
 
 const makeCreateStoreAction = require('./create-store');
@@ -23,7 +23,7 @@ const deleteStoreAction = makeDeleteStoreAction({
     formatError,
 });
 
-const makeUpdateStoreAction = require('./update-store');
+const makeUpdateStoreAction = require('./update-store.js');
 const updateStoreAction = makeUpdateStoreAction({
     updateStore,
     formatResponse,
@@ -39,7 +39,7 @@ const getUserStoresAction = makeGetUserStoresAction({
 
 const makeGetAllStoresAction = require('./get-all-stores');
 const getAllStoresAction = makeGetAllStoresAction({
-    getAlStores,
+    getAllStores,
     formatResponse,
     formatError,
 });

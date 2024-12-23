@@ -10,10 +10,8 @@ function formatResponse(
       name: body.name,
       code: body.errorCode,
     };
-    formattedResponse.headers['content-type'] = 'application/json';
   } else {
     formattedResponse.body = body;
-    formattedResponse.headers['content-type'] = contentType ? contentType : 'application/json';
   }
   return formattedResponse;
 }
