@@ -17,8 +17,16 @@ const cockroach = new Pool({
 const makeStoresDb = require('./storesdb');
 const storesDb = makeStoresDb({ cockroach, UnknownError });
 
+const makeEventsDb = require('./eventsdb');
+const eventsDb = makeEventsDb({ cockroach, UnknownError });
+
+const makeStoreRequestsDb = require('./storerequestsdb');
+const storeRequestsDb = makeStoreRequestsDb({ cockroach, UnknownError });
+
 // Export all DBs
 const dbs = {
-    storesDb
+    storesDb,
+    eventsDb,
+    storeRequestsDb
 };
 module.exports = { cockroach, ...dbs };

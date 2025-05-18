@@ -25,10 +25,24 @@ const getAllStores = makeGetAllStores({
     storesDb: allDbs.storesDb,
 });
 
+const makeCreateStoreEventRequest = require('./create-store-event-request');
+const createStoreEventRequest = makeCreateStoreEventRequest({
+    storeRequestsDb: allDbs.storeRequestsDb,
+});
+
+const makeAcceptStoreEventRequest = require('./accept-store-event-request');
+const acceptStoreEventRequest = makeAcceptStoreEventRequest({
+    storeRequestsDb: allDbs.storeRequestsDb,
+    eventsDb: allDbs.eventsDb,
+});
+
+
 module.exports = Object.freeze({
     createStore,
     deleteStore,
     updateStore,
     getUserStores,
     getAllStores,
+    createStoreEventRequest,
+    acceptStoreEventRequest,
 });

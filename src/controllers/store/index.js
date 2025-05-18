@@ -6,7 +6,9 @@ const {
     deleteStore,
     updateStore,
     getUserStores,
-    getAllStores
+    getAllStores,
+    createStoreEventRequest,
+    acceptStoreEventRequest
 } = require('../../use-cases').storeUseCases;
 
 const makeCreateStoreAction = require('./create-store');
@@ -44,10 +46,26 @@ const getAllStoresAction = makeGetAllStoresAction({
     formatError,
 });
 
+const makeStoreEventRequestAction = require('./create-store-event-request');
+const storeEventRequestAction = makeStoreEventRequestAction({
+    createStoreEventRequest,
+    formatResponse,
+    formatError,
+});
+
+const makeAcceptStoreEventRequestAction = require('./accept-store-event-request');
+const acceptStoreEventRequestAction = makeAcceptStoreEventRequestAction({
+    acceptStoreEventRequest,
+    formatResponse,
+    formatError,
+});
+
 module.exports = Object.freeze({
     createStoreAction,
     deleteStoreAction,
     updateStoreAction,
     getUserStoresAction,
     getAllStoresAction,
+    storeEventRequestAction,
+    acceptStoreEventRequestAction,
 });

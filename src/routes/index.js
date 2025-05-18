@@ -10,4 +10,8 @@ router.put(`${serviceEndpointPrefix}/update-store`, (req, res) => storeControlle
 router.get(`${serviceEndpointPrefix}/get-admin-stores`, (req, res) => storeController.getUserStoresAction(req, res));
 router.get(`${serviceEndpointPrefix}/get-all-stores`, (req, res) => storeController.getAllStoresAction(req, res));
 
+// Store Event Request routes
+router.post(`${serviceEndpointPrefix}/send-event-request`, (req, res) => storeController.storeEventRequestAction({ req, res }));
+router.post(`${serviceEndpointPrefix}/accept-event-request`, (req, res) => storeController.acceptStoreEventRequestAction({ req, res }));
+
 module.exports = router;
