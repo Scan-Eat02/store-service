@@ -3,7 +3,7 @@ function makeGetUserStoresAction({ getUserStores, formatResponse, formatError })
         try {
             // Step 2: Extract necessary fields from the request body
             const storeData = {
-                userId: req.body['userId'],
+                userId: req.query['userId'],
             };
             
             console.log('Get User Stores Request:', storeData);

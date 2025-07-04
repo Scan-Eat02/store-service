@@ -1,13 +1,11 @@
 module.exports = function makeGetAllStores({ storesDb }) {
-    return async function getAllStores() {
+  return async function getAllStores({ search = null } = {}) {
       try {
-        // Update the store with additional fields
-        const allStores = await storesDb.getAllStores();
-  
-        return allStores;
+          const allStores = await storesDb.getAllStores({ search });
+          return allStores;
       } catch (error) {
-        console.log("Error during store get all:", error);
-        throw error;
+          console.log("Error during store get all:", error);
+          throw error;
       }
-    };
   };
+};

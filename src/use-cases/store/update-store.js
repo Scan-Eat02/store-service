@@ -9,7 +9,6 @@ module.exports = function makeUpdateStore({ storesDb }) {
       modifiedAt,
     }) {
       try {
-        // Update the store with additional fields
         const updatedStore = await storesDb.updateStore({
           id,
           name,
@@ -17,7 +16,7 @@ module.exports = function makeUpdateStore({ storesDb }) {
           description,
           visibility,
           location,
-          modifiedAt, // Set modified_at to current timestamp
+          modifiedAt,
         });
   
         return updatedStore;

@@ -1,7 +1,9 @@
 function makeGetAllStoresAction({ getAllStores, formatResponse, formatError }) {
     return async function getAllStoresController(req, res) {
-        try {            
-            const result = await getAllStores();
+        try {
+            const search = req.query.search || null;
+
+            const result = await getAllStores({ search });
             console.log('Stores get all successful');
 
             return res.status(200).json(formatResponse({
